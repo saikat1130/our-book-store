@@ -1,0 +1,149 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner_slider %}
+<!--Banner Slider-->
+ <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'app/images/banner/b1 (3).jpg' %}" class="d-block w-100" alt="..."> 
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/b1 (1).jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/b1 (2).jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/b1 (4).jpg' %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+<!-- End Banner Slider -->
+{% endblock banner_slider %}
+
+{% block livesale %}
+{% comment %} <!-- Live Sale Section -->
+<div class="container-xxl">
+  <div class="row bg-danger text-center p-4 r-5 text-white border-bottom shadow">
+    <h1>SALE IS LIVE NOW</h1>
+    <span>5% Instant Discount on Axis Bank Credit and Debit Card</span>
+    <small class="fw-lighter">Term and Condition Applied (For details visit Bank's official Website)</small>
+  </div>
+</div>  {% endcomment %}
+
+<style>
+  .mar2{
+    background-color: #A52A2A;
+    color: rgb(250, 250, 250);
+    
+}
+</style>
+
+<div class="mar2" id="zip2">
+  <marquee width="100%"  height="80px"  style="font-size: 50px;" scrollamount="15"><b>The Sale is Live Now!</b> |  5% Instant Discount on Axis Bank Credit and Debit Card</marquee>
+</div> 
+<!-- End Live Sale Section -->
+{% endblock livesale %}
+
+{% block main-content %}
+<!-- 1st Product Slider -->
+<div class="m-3">
+ <h2><b>₷৹৹ċïäɭ</b> Deals of The Day</h2>
+ <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider1">
+ {% for E in English %}  
+  <a href="{% url 'product-detail' %}" class="btn"><div class="item"><img src="{{E.product_image.url}}" alt="" height="300px"><span class="fw-bold">{{E.title}}</span><br><span class="fs-5"><s>Rs.{{E.selling_price}} </s></span><span class="color"><sup>  28.5% off </sup></span><br><span class="highlight2">Rs.{{E.discounted_price}}</span></div></a>
+ {% endfor %}
+</div>
+</div>
+<style>
+  .color {
+    color: green;
+  }
+  .highlight2 {
+    background-color: yellow;
+    font-weight: bold;
+  }
+  
+  
+</style> 
+<!-- End 1st Product Slider -->
+<!-- Payment Info Section -->
+{% comment %} <div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+     <img src="{% static 'app/images/payavail/cc.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/upi.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/nb.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/bj.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+ </div>
+</div> {% endcomment %}
+<!-- End Payment Info Section -->
+
+<div class="mx-3">
+  <h2>Trending Bengali Story Books</h2> 
+  <!-- Slider 2 -->
+  <div class="owl-carousel" id="slider4">
+    {% for B in Bengali %}  
+    <a href="{% url 'product-detail' %}" class="btn"><div class="item"><img src="{{B.product_image.url}}" alt="" height="300px"><span class="fw-bold">{{B.title}}</span><br><span class="fs-5"><s>Rs.{{B.selling_price}}</s><sup>  28.5% off</sup></span><br><span class="fs-5">Rs.{{B.discounted_price}}</span></div></a>
+   {% endfor %}
+ </div>
+
+
+
+
+<!-- 2nd Product Slider -->
+<div class="mx-3">
+ <h2>Trending Bengali Story Books</h2> 
+ <!-- Slider 2 -->
+ <div class="owl-carousel" id="slider2">
+  <div class="item"><img src="{% static 'app/images/product/beng (1).jpg' %}" alt="" height="300px" width="50px"><span class="fw-bold">Product 1</span><br><span class="fs-5">Rs. 500</span></div>
+  <div class="item"><img src="{% static 'app/images/product/beng (2).jpg' %}" alt="" height="300px" width="50px"><span class="fw-bold">Product 2</span><br><span class="fs-5">Rs. 300</span></div>
+  <div class="item"><img src="{% static 'app/images/product/beng (3).jpg' %}" alt="" height="300px" width="50px"><span class="fw-bold">Product 3</span><br><span class="fs-5">Rs. 100</span></div>
+  <div class="item"><img src="{% static 'app/images/product/beng (4).jpg' %}" alt="" height="300px" width="50px"><span class="fw-bold">Product 4</span><br><span class="fs-5">Rs. 700</span></div>
+  <div class="item"><img src="{% static 'app/images/product/beng (5).jpg' %}" alt="" height="300px" width="50px"><span class="fw-bold">Product 5</span><br><span class="fs-5">Rs. 500</span></div>
+  <div class="item"><img src="{% static 'app/images/product/beng (6).jpg' %}" alt="" height="300px" width="50px"><span class="fw-bold">Product 6</span><br><span class="fs-5">Rs. 400</span></div>
+  <div class="item"><img src="{% static 'app/images/product/beng (7).jpg' %}" alt="" height="300px" width="50px"><span class="fw-bold">Product 7</span><br><span class="fs-5">Rs. 500</span></div>
+  <div class="item"><img src="{% static 'app/images/product/beng (8).jpg' %}" alt="" height="300px" width="50px"><span class="fw-bold">Product 8</span><br><span class="fs-5">Rs. 300</span></div>
+  <div class="item"><img src="{% static 'app/images/product/beng (9).jpg' %}" alt="" height="300px" width="50px"><span class="fw-bold">Product 9</span><br><span class="fs-5">Rs. 600</span></div>
+  <div class="item"><img src="{% static 'app/images/product/beng (10).jpg' %}" alt="" height="300px" width="50px"><span class="fw-bold">Product 10</span><br><span class="fs-5">Rs. 900</span></div>
+  <div class="item"><img src="{% static 'app/images/product/beng (11).jpg' %}" alt="" height="300px" width="50px"><span class="fw-bold">Product 11</span><br><span class="fs-5">Rs. 100</span></div>
+  <div class="item"><img src="{% static 'app/images/product/beng (12).jpg' %}" alt="" height="300px" width="50px"><span class="fw-bold">Product 12</span><br><span class="fs-5">Rs. 200</span></div>
+ </div>
+</div>
+<!-- End 2nd Product Slider -->
+{% endblock main-content %}
+
